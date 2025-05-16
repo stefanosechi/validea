@@ -29,38 +29,64 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
-  },
-  {
-    icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "/calendar",
-  },
-  {
-    icon: <UserCircleIcon />,
-    name: "User Profile",
-    path: "/profile",
+    name: "Business Overview",
+    subItems: [
+      { name: "Business Viability", path: "/blank", pro: false },
+      { name: "Business Overview", path: "/blank", pro: false }
+    ],
   },
 
   {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
-  },
-  {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
-    name: "Pages",
-    icon: <PageIcon />,
+    icon: <GridIcon />,
+    name: "Market Research",
     subItems: [
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
+      { name: "Trends in the market sector", path: "/blank", pro: false },
+      { name: "Competitive analysiss", path: "/blank", pro: false },
+      { name: "Market size and growth potential", path: "/blank", pro: false },
+      { name: "Consume behavior", path: "/blank", pro: false },
+      { name: "Customer segmentation", path: "/blank", pro: false },
+      { name: "Regulatory enviroment", path: "/blank", pro: false },
+      { name: "Key considerations", path: "/blank", pro: false },
     ],
   },
+  {
+    icon: <GridIcon />,
+    name: "Launch and Scale",
+    subItems: [
+      { name: "MVP Roadmap", path: "/blank", pro: false },
+      { name: "Hiring roadmap and cost", path: "/blank", pro: false },
+      { name: "Operational cost", path: "/blank", pro: false },
+      { name: "Tech Stack", path: "/blank", pro: false },
+      { name: "Code/No Code", path: "/blank", pro: false },
+      { name: "AI/ML Implementation", path: "/blank", pro: false },
+      { name: "Analytics and metrics", path: "/blank", pro: false },
+      { name: "Distribution channels", path: "/blank", pro: false },
+      { name: "Early user acquisition strategy", path: "/blank", pro: false },
+      { name: "Late game user acquisition strategy", path: "/blank", pro: false },
+      { name: "Partnership and collaborations", path: "/blank", pro: false },
+      { name: "Customer Retention", path: "/blank", pro: false },
+      { name: "Guerrilla Marketing ideas", path: "/blank", pro: false },
+      { name: "Website FAQS", path: "/blank", pro: false },
+      { name: "SEO Teams", path: "/blank", pro: false },
+      { name: "Google/Text Ad Copy", path: "/blank", pro: false },
+    ],
+  },
+  {
+    icon: <GridIcon />,
+    name: "Raise Capital",
+    subItems: [
+      { name: "Elevator Pitch", path: "/blank", pro: false },
+      { name: "YC-style pitch deck", path: "/blank", pro: false },
+      { name: "Pitch preparation", path: "/blank", pro: false },
+      { name: "Valuation", path: "/blank", pro: false },
+      { name: "Funding required for see/pre-seed stage", path: "/blank", pro: false },
+      { name: "Investor outreach", path: "/blank", pro: false },
+      { name: "Investor concerns", path: "/blank", pro: false },
+      { name: "Business introduction", path: "/blank", pro: false },
+    ],
+  },
+  
+ 
 ];
 
 const othersItems: NavItem[] = [
@@ -356,7 +382,7 @@ const AppSidebar: React.FC = () => {
               {renderMenuItems(navItems, "main")}
             </div>
 
-            <div className="">
+            {/* <div className="">
               <h2
                 className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
                   !isExpanded && !isHovered
@@ -371,7 +397,7 @@ const AppSidebar: React.FC = () => {
                 )}
               </h2>
               {renderMenuItems(othersItems, "others")}
-            </div>
+            </div> */}
           </div>
         </nav>
         {isExpanded || isHovered || isMobileOpen ? <SidebarWidget /> : null}

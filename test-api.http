@@ -1,0 +1,7 @@
+### Test API POST /api/generate
+POST http://localhost:3000/api/generate
+Content-Type: application/json
+
+{
+  "prompt": "Voglio creare un sito web di notizie e sondaggi di varie categorie per far partecipare i cittadini di uno stato"
+}

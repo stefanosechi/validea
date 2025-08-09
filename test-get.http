@@ -1,0 +1,2 @@
+### Recupera tutte le sezioni di una idea generata
+GET http://localhost:3000/api/generate?ideaId=029da5b4-2f3e-4123-b4f6-a5b8bafb8cfb

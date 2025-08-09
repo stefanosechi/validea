@@ -127,14 +127,43 @@ const AppHeader: React.FC = () => {
             isApplicationMenuOpen ? "flex" : "hidden"
           } items-center justify-between w-full gap-4 px-5 py-4 lg:flex shadow-theme-md lg:justify-end lg:px-0 lg:shadow-none`}
         >
-          <div className="flex items-center gap-2 2xsm:gap-3">
-            {/* <!-- Dark Mode Toggler --> */}
-            <ThemeToggleButton />
-            {/* <!-- Dark Mode Toggler --> */}
+{/* Share Button */}
+          <button
+            type="button"
+            className="ml-4 px-4 py-2 bg-blank text-black rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+          >
+            Share
+          </button>
 
-          </div>
-          {/* <!-- User Area --> */}
-          <UserDropdown /> 
+
+{/* Export Button */}
+          <button
+            type="button"
+            className="ml-4 px-4 py-2 bg-blank text-black rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+          >
+            Export
+          </button>
+
+
+
+{/* Get Full Report Button */}
+          <button
+            type="button"
+            className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-vlue-500 focus:ring-offset-2"
+          >
+            Full Report
+          </button>
+
+
+          <div className="flex items-center gap-2 2xsm:gap-3">
+          {/* <!-- Dark Mode Toggler --> */}
+          <ThemeToggleButton />
+          {/* <!-- Dark Mode Toggler --> */}
+
+        
+        </div>
+        {/* <!-- User Area --> */}
+        <UserDropdown /> 
     
         </div>
       </div>

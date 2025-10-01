@@ -27,71 +27,67 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  {
-    icon: <GridIcon />,
-    name: "Generazioni Salvate",
-    path: "/generated",
-  },
-  {
-    icon: <GridIcon />,
-    name: "My Idea Prompt",
-    path: "/blank",
-  },
+  { icon: <GridIcon />, name: "Generazioni Salvate", path: "/generated" },
+  { icon: <GridIcon />, name: "My Idea Prompt", path: "/blank" },
+
   {
     icon: <GridIcon />,
     name: "Business Overview",
     subItems: [
-      { name: "Business Viability", path: "/blank" },
-      { name: "Business Overview", path: "/blank" },
+      { name: "Business Viability", path: "/business-overview/business-viability" },
+      { name: "Business Overview", path: "/business-overview/overview" }, // cartella: src/app/(admin)/business-overview/overview/page.tsx
     ],
   },
+
   {
     icon: <GridIcon />,
     name: "Market Research",
     subItems: [
-      { name: "Trends in the market sector", path: "/blank" },
-      { name: "Competitive analysiss", path: "/blank" },
-      { name: "Market size and growth potential", path: "/blank" },
-      { name: "Consume behavior", path: "/blank" },
-      { name: "Customer segmentation", path: "/blank" },
-      { name: "Regulatory enviroment", path: "/blank" },
-      { name: "Key considerations", path: "/blank" },
+      { name: "Trends in the Market Sector", path: "/market-research/trends-in-the-market-sector" },
+      { name: "Competitive Analysis", path: "/market-research/competitive-analysis" },
+      { name: "Market Size and Growth Potential", path: "/market-research/market-size-and-growth-potential" },
+      { name: "Consumer Behavior", path: "/market-research/consumer-behavior" },
+      { name: "Customer Segmentation", path: "/market-research/customer-segmentation" },
+      { name: "Regulatory Environment", path: "/market-research/regulatory-environment" },
+      { name: "Key Considerations", path: "/market-research/key-considerations" },
     ],
   },
+
   {
     icon: <GridIcon />,
     name: "Launch and Scale",
     subItems: [
-      { name: "MVP Roadmap", path: "/blank" },
-      { name: "Hiring roadmap and cost", path: "/blank" },
-      { name: "Operational cost", path: "/blank" },
-      { name: "Tech Stack", path: "/blank" },
-      { name: "Code/No Code", path: "/blank" },
-      { name: "AI/ML Implementation", path: "/blank" },
-      { name: "Analytics and metrics", path: "/blank" },
-      { name: "Distribution channels", path: "/blank" },
-      { name: "Early user acquisition strategy", path: "/blank" },
-      { name: "Late game user acquisition strategy", path: "/blank" },
-      { name: "Partnership and collaborations", path: "/blank" },
-      { name: "Customer Retention", path: "/blank" },
-      { name: "Guerrilla Marketing ideas", path: "/blank" },
-      { name: "Website FAQS", path: "/blank" },
-      { name: "SEO Teams", path: "/blank" },
-      { name: "Google/Text Ad Copy", path: "/blank" },
+      { name: "MVP Roadmap", path: "/launch-and-scale/mvp-roadmap" },
+      { name: "Hiring Roadmap and Cost", path: "/launch-and-scale/hiring-roadmap-and-cost" },
+      { name: "Operational Cost", path: "/launch-and-scale/operational-cost" },
+      { name: "Tech Stack", path: "/launch-and-scale/tech-stack" },
+      { name: "Code / No Code", path: "/launch-and-scale/code-no-code" },
+      { name: "AI / ML Implementation", path: "/launch-and-scale/ai-ml-implementation" },
+      { name: "Analytics and Metrics", path: "/launch-and-scale/analytics-and-metrics" },
+      { name: "Distribution Channels", path: "/launch-and-scale/distribution-channels" },
+      { name: "Early User Acquisition Strategy", path: "/launch-and-scale/early-user-acquisition-strategy" },
+      { name: "Late Game User Acquisition Strategy", path: "/launch-and-scale/late-game-user-acquisition-strategy" },
+      { name: "Partnership and Collaborations", path: "/launch-and-scale/partnership-and-collaborations" },
+      { name: "Customer Retention", path: "/launch-and-scale/customer-retention" },
+      { name: "Guerrilla Marketing Ideas", path: "/launch-and-scale/guerrilla-marketing-ideas" },
+      { name: "Website FAQs", path: "/launch-and-scale/website-faqs" },
+      { name: "SEO Teams", path: "/launch-and-scale/seo-teams" },
+      { name: "Google / Text Ad Copy", path: "/launch-and-scale/google-text-ad-copy" },
     ],
   },
+
   {
     icon: <GridIcon />,
     name: "Raise Capital",
     subItems: [
-      { name: "Elevator Pitch", path: "/blank" },
-      { name: "YC-style pitch deck", path: "/blank" },
-      { name: "Pitch preparation", path: "/blank" },
-      { name: "Valuation", path: "/blank" },
-      { name: "Funding required for see/pre-seed stage", path: "/blank" },
-      { name: "Investor outreach", path: "/blank" },
-      { name: "Investor concerns", path: "/blank" },
-      { name: "Business introduction", path: "/blank" },
+      { name: "Elevator Pitch", path: "/raise-capital/elevator-pitch" },
+      { name: "YC-style Pitch Deck", path: "/raise-capital/yc-style-pitch-deck" },
+      { name: "Pitch Preparation", path: "/raise-capital/pitch-preparation" },
+      { name: "Valuation", path: "/raise-capital/valuation" },
+      { name: "Funding Required (Seed/Pre-seed)", path: "/raise-capital/funding-required-seed-preseed" },
+      { name: "Investor Outreach", path: "/raise-capital/investor-outreach" },
+      { name: "Investor Concerns", path: "/raise-capital/investor-concerns" },
+      { name: "Business Introduction", path: "/raise-capital/business-introduction" },
     ],
   },
 ];
@@ -100,10 +96,7 @@ const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
   const pathname = usePathname();
 
-  const [openSubmenu, setOpenSubmenu] = useState<{
-    type: "main" | "others";
-    index: number;
-  } | null>(null);
+  const [openSubmenu, setOpenSubmenu] = useState<{ type: "main" | "others"; index: number } | null>(null);
   const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>({});
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -157,7 +150,13 @@ const AppSidebar: React.FC = () => {
                   : "menu-item-inactive"
               } cursor-pointer ${!isExpanded && !isHovered ? "lg:justify-center" : "lg:justify-start"}`}
             >
-              <span className={`${openSubmenu?.index === index ? "menu-item-icon-active" : "menu-item-icon-inactive"}`}>{nav.icon}</span>
+              <span
+                className={`${
+                  openSubmenu?.index === index ? "menu-item-icon-active" : "menu-item-icon-inactive"
+                }`}
+              >
+                {nav.icon}
+              </span>
               {(isExpanded || isHovered || isMobileOpen) && <span className="menu-item-text">{nav.name}</span>}
               {(isExpanded || isHovered || isMobileOpen) && (
                 <ChevronDownIcon
@@ -173,7 +172,9 @@ const AppSidebar: React.FC = () => {
                 href={nav.path}
                 className={`menu-item group ${isActive(nav.path) ? "menu-item-active" : "menu-item-inactive"}`}
               >
-                <span className={`${isActive(nav.path) ? "menu-item-icon-active" : "menu-item-icon-inactive"}`}>{nav.icon}</span>
+                <span className={`${isActive(nav.path) ? "menu-item-icon-active" : "menu-item-icon-inactive"}`}>
+                  {nav.icon}
+                </span>
                 {(isExpanded || isHovered || isMobileOpen) && <span className="menu-item-text">{nav.name}</span>}
               </Link>
             )
@@ -230,39 +231,35 @@ const AppSidebar: React.FC = () => {
           )}
         </Link>
       </div>
+
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
-  {(isExpanded || isHovered || isMobileOpen) && (
-    <div className="mt-4 mb-6 px-1">
-      <div className="relative group">
-        <button className="w-full px-4 py-2 text-left bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex justify-between items-center">
-          <span className="truncate">
-            Seleziona un’idea...
-          </span>
-          <ChevronDownIcon className="w-4 h-4 ml-2" />
-        </button>
-        <div className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-50 hidden group-hover:block">
-          <ul className="max-h-60 overflow-y-auto">
-            {/* 👉 Placeholder idee */}
-            <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">
-              💡 Idea #1: Marketplace per artigiani
-            </li>
-            <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">
-              📊 Idea #2: SaaS per ristoratori
-            </li>
-            {/* ➕ Aggiungi nuova idea */}
-            <li className="px-4 py-2 text-brand-600 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer border-t border-gray-200 dark:border-gray-700">
-              ➕ Aggiungi nuova idea
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  )}
+        {(isExpanded || isHovered || isMobileOpen) && (
+          <div className="mt-4 mb-6 px-1">
+            <div className="relative group">
+              {/* Idea switcher (placeholder) */}
+              <button className="w-full px-4 py-2 text-left bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex justify-between items-center">
+                <span className="truncate">Seleziona un’idea...</span>
+                <ChevronDownIcon className="w-4 h-4 ml-2" />
+              </button>
+              <div className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-50 hidden group-hover:block">
+                <ul className="max-h-60 overflow-y-auto">
+                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">💡 Idea #1</li>
+                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">📊 Idea #2</li>
+                  <li className="px-4 py-2 text-brand-600 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer border-t border-gray-200 dark:border-gray-700">
+                    ➕ Aggiungi nuova idea
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
 
-  <nav className="mb-6">
-
-          
-          <h2 className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"}`}>
+        <nav className="mb-6">
+          <h2
+            className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
+              !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
+            }`}
+          >
             {isExpanded || isHovered || isMobileOpen ? "Documentation" : <HorizontaLDots />}
           </h2>
           {renderMenuItems(navItems)}
